@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM alpine:3.10
 
-RUN apt-get update && apt -y install mc rsync
+#RUN apt-get update && apt -y install mc rsync
 
 # Get composer installed to /usr/local/bin/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
