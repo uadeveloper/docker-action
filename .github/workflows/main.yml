@@ -1,5 +1,9 @@
 name: CI-First-Second-Repo
 
+concurrency: 
+  group: trololo_group_key
+  cancel-in-progress: true
+  
 on:
   workflow_dispatch:
     inputs:
@@ -28,10 +32,7 @@ on:
 jobs:
   First_Job:
     runs-on: ubuntu-latest
-    concurrency: 
-      group: trololo_group_key
-      cancel-in-progress: true
-  
+
     steps:    
       
       - name: print warning
