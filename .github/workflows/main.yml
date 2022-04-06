@@ -1,0 +1,45 @@
+name: CI-First-Second-Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+      tags:
+        description: 'Vendor update'
+        required: false 
+        type: boolean
+  pull_request_target:
+    branches: main
+  release:
+    branches: main
+  push:
+    branches: [ main ]
+#    paths-ignore:
+#      - '.github/**'
+
+jobs:
+  First_Job:
+    runs-on: ubuntu-latest
+    concurrency: 
+      group: trololo_group_key
+      cancel-in-progress: true
+  
+    steps:    
+      
+      - name: print warning
+        run: echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+      
+#      - name: Reboot
+#        continue-on-error: true
+#        run: sudo reboot
+ 
+      - name: Print test
+        run: echo "print test...."
